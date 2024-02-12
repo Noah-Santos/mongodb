@@ -19,6 +19,6 @@ const PersonSchema = new mongoose.Schema({
         type: Number,
         default: 0
     }
-},{collection: 'People'})
+},{collection: 'Users'})
 
-module.exports = mongoose.model('Person', PersonSchema);
+module.exports = mongoose.model('User', PersonSchema);

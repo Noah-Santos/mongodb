@@ -1,11 +1,11 @@
 // let {people} = require('../data');
-const People = require('../models/person');
+const User = require('../models/person');
 
 // get function for all people
-const readPeople = async(req,res)=>{
+const readUser = async(req,res)=>{
     // res.json({success:true, data:people});
     try {
-        let people = await People.find({});
+        let people = await User.find({});
         // console.log(answer);
         res.json(people);
     } catch (error) {
@@ -14,18 +14,18 @@ const readPeople = async(req,res)=>{
 }
 
 // post function for creating people
-const createPeople = async(req,res)=>{
+const createUser = async(req,res)=>{
     try {
-        let allPeople = await People.find({});
+        let allUser = await User.find({});
         let {name, age, task} = req.body;
 
         if(task == ''){
             task = 'none';
         }
 
-        let newPerson = await People.create({name:name, age:age, userID:allPeople.length+1, task:task});
-        allPeople = await People.find({});
-        res.json(allPeople);
+        let newPerson = await User.create({name:name, age:age, userID:allUser.length+1, task:task});
+        allUser = await User.find({});
+        res.json(allUser);
 
     } catch (error) {
         console.log(error);
@@ -33,11 +33,11 @@ const createPeople = async(req,res)=>{
 }
 
 // put function for update people
-const updatePeople = async(req,res)=>{
+const updateUser = async(req,res)=>{
     try {
         let {userID} = req.params;
         let {name, age, task} = req.body;
-        let changePerson = People.findById(userID)
+        let changePerson = User.findById(userID)
 
         if(!name){
             name = changePerson.name;
@@ -49,7 +49,7 @@ const updatePeople = async(req,res)=>{
             age = changePerson.age;
         }
 
-        let people = await People.findOneAndUpdate({userID:userID}, {name:name, task:task, age:age});
+        let people = await User.findOneAndUpdate({userID:userID}, {name:name, task:task, age:age});
         res.json(people);
     } catch (error) {
         console.log(error);
@@ -57,14 +57,14 @@ const updatePeople = async(req,res)=>{
 }
 
 // delete function for delete people
-const deletePeople = async(req,res)=>{
+const deleteUser = async(req,res)=>{
     try {
         const {userID} = req.params;
-        let person = await People.findOneAndDelete({userID:userID});
+        let person = await User.findOneAndDelete({userID:userID});
         res.json(person);
     } catch (error) {
         console.log(error);
     }
 }
 
-module.exports = {readPeople, createPeople, updatePeople, deletePeople};
+module.exports = {readUser, createUser, updateUser, deleteUser};
