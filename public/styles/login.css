@@ -33,7 +33,7 @@ body {
 }
 
 .loginContainer .loginForm {
-    font-family: "mont";
+    /* font-family: "mont"; */
     margin-left: 5%;
     margin-right: 5%;
     width: 67%;
@@ -139,10 +139,10 @@ body {
     object-fit: contain;
 }
 
-@font-face {
+/* @font-face {
     font-family: "mont";
     src: url("../../Fonts/Montserrat-VariableFont_wght.ttf");
-}
+} */
 
 @media (max-width: 1200px) {
     .loginContainer {

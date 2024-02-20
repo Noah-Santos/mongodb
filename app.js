@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // routes/router
-app.use('/api/people', people);
+app.use('/people', people);
 
 // Server Listen
 const initServer = async()=>{
