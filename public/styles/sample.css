@@ -8,6 +8,43 @@ nav{
     justify-content: space-between;
     font-size: 2rem;
     padding: 1rem;
+    width: calc(100% - 2rem);
+    height: calc(10vh - 2rem);;
     background-color: black;
     color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+select{
+    border-radius: 5px;
+    padding: .5rem;
+    border: 0;
+    outline: none;
+}
+select:active,select:focus{
+    border: 0;
+    outline: none;
+}
+#routineCon{
+    display: flex;
+    flex-direction: row;
+    color: black;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
+    background-color: white;
+    border-radius: 10px;
+}
+#bigCon{
+    background-color: black;
+    color: white;
+    width: calc(90% - 4rem);
+    height: calc(80vh - 4rem);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 5vh;
 }
