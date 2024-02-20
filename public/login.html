@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/login.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Login</h1>
+    <div class="loginContainer">
+        <div class="loginImg">
+            <img src="./Images/login.png" alt="Login Cartoon" />
+        </div>
+        <div class="loginForm">
+            <article class='form'>
+                <h1 class="loginTitle">Log In To Your Account</h1>
+                <p class="loginSubTitle">Login To Continue Using the Site</p>
+                
+                <form class='form'>
+                    <div class='form-control'>
+                        <label htmlFor="email">Email:</label>
+                        <br>
+                        <input type="email" name='email' id='email' class="loginInput" placeholder="Enter Your Email" />
+                    </div>
+                    <br>
+                    <div class='form-control'>
+                        <label htmlFor="password">Password:</label>
+                        <br>
+                        <input type="password"  name='password' id='password' class="loginInput" placeholder="Enter Your Password" />
+                    </div>
+                    <br>
+                    <br>
+                    <button type='submit' class="loginButton">Login</button>
+                    <br>
+                    <br>
+                    <p class="otherTitle">Or Login With</p>
+                    <br>
+                    <div class="loginOther">
+                        <div class="appleLogin socialLogin">
+                            <img src="https://pngimg.com/d/apple_logo_PNG19666.png" alt="Apple" />
+                        </div>
+                        <div class="googleLogin socialLogin">
+                            <img src="https://img.freepik.com/freie-ikonen/chrom_318-674221.jpg" alt="Google" />
+                        </div>
+                        <div class="facebookLogin socialLogin">
+                            <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png"
+                                alt="Facebook" />
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <p class="wrongPage">
+                        <span>Don't have an account?</span> <a class="loginRedirect">Register Here</a>
+                    </p>
+    
+                </form>
+            </article>
+        </div>
+    </div>
 </body>
 </html>
