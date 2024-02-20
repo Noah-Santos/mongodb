@@ -2,7 +2,7 @@
 const User = require('../models/person');
 
 // get function for all people
-const readUser = async(req,res)=>{
+const getUser = async(req,res)=>{
     // res.json({success:true, data:people});
     try {
         let people = await User.find({});
@@ -13,17 +13,23 @@ const readUser = async(req,res)=>{
     }
 }
 
+const findUser = async(req,res)=>{
+    try {
+        let {userID} = req.params;
+        let person = await User.findOne({userID});
+        res.json(person);
+    }catch(error){
+        console.log(error);
+    }
+}
+
 // post function for creating people
 const createUser = async(req,res)=>{
     try {
         let allUser = await User.find({});
-        let {name, age, task} = req.body;
+        let {username, email, password, weight, height, age, routines} = req.body;
 
-        if(task == ''){
-            task = 'none';
-        }
-
-        let newPerson = await User.create({name:name, age:age, userID:allUser.length+1, task:task});
+        let newPerson = await User.create({username:username, email:email, password:password, weight:weight, height:height, age:age, routines:routines, userID:allUser.length+1});
         allUser = await User.find({});
         res.json(allUser);
 
@@ -36,20 +42,20 @@ const createUser = async(req,res)=>{
 const updateUser = async(req,res)=>{
     try {
         let {userID} = req.params;
-        let {name, age, task} = req.body;
+        let {routines, height, weight} = req.body;
         let changePerson = User.findById(userID)
 
-        if(!name){
-            name = changePerson.name;
+        if(!routines){
+            routines = changePerson.routines;
         }
-        if(!task){
-            task = changePerson.task;
+        if(!height){
+            height = changePerson.height;
         }
-        if(!age){
-            age = changePerson.age;
+        if(!weight){
+            weight = changePerson.weight;
         }
 
-        let people = await User.findOneAndUpdate({userID:userID}, {name:name, task:task, age:age});
+        let people = await User.findOneAndUpdate({userID:userID}, {routines:routines, height:height, weight:weight});
         res.json(people);
     } catch (error) {
         console.log(error);
@@ -67,4 +73,4 @@ const deleteUser = async(req,res)=>{
     }
 }
 
-module.exports = {readUser, createUser, updateUser, deleteUser};
+module.exports = {getUser, createUser, updateUser, deleteUser, findUser};
