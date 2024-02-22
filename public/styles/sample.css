@@ -1,8 +1,12 @@
 html,body{
     padding: 0%;
     margin: 0%;
+    font-family: unit;
 }
-
+@font-face {
+    font-family: unit;
+    src: url(../fonts/Unitblock.ttf);
+}
 nav{
     display: flex;
     justify-content: space-between;
@@ -21,13 +25,15 @@ select{
     border-radius: 5px;
     padding: .5rem;
     border: 0;
+    font-family: unit;
     outline: none;
+    font-size: 1.5rem;
 }
 select:active,select:focus{
     border: 0;
     outline: none;
 }
-#routineCon{
+.routineCon{
     display: flex;
     flex-direction: row;
     color: black;
@@ -47,4 +53,32 @@ select:active,select:focus{
     border-radius: 10px;
     margin: auto;
     margin-top: 5vh;
+}
+#bigCon>div>button{
+border-radius: 5px;
+    padding: .5rem;
+    border: 0;
+    outline: none;
+    background-color: white;
+    
+}
+#addE{
+    border-radius: 5px;
+        padding: .5rem;
+        border: 0;
+        outline: none;
+        margin: auto;
+        margin-top: 2rem;
+        background-color: white
+
+}
+h2{
+    font-size: 2rem;
+}
+p{
+    font-size: 1.5rem;
+}
+button{
+    font-size: 1.5rem;
+    font-family: unit;
 }

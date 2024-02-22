@@ -12,17 +12,27 @@
         <a href="tutorial.html">Tutorial</a>
     </nav>
     <div id="bigCon">
-        <select name="routine" id="routine">
-            <option value="1">Push Day</option>
-            <option value="2">Pull Day</option>
-            <option value="3">Leg Day</option>
-        </select>
-        <div id="routineCon">
-            <h2>Close Grip Bench <button onclick=""><i class="fa-solid fa-pencil"></i></button></h2>
-            <p>Sets - 5<button onclick=""><i class="fa-solid fa-pencil"></i></button></p>
-            <p>Reps - 5<button onclick=""><i class="fa-solid fa-pencil"></i></button></p>
-            <p>Weight - 225<button onclick=""><i class="fa-solid fa-pencil"></i></button></p>
+        <div>
+            <select name="routine" id="routine">
+                <option value="1">Push Day</option>
+                <option value="2">Pull Day</option>
+                <option value="3">Leg Day</option>
+            </select>
+            <button onclick="">Add Routine</button>
+            <button onclick="">Delete Routine</button>
         </div>
+        
+        <div class="routineCon">
+            <h2>Close Grip Bench</h2>
+            <p>Sets - 5</p>
+            <p>Reps - 5</p>
+            <p>Weight - 225</p>
+            <div><button onclick=""><i class="fa-solid fa-pencil"></i></button>
+            <button onclick=""><i class="fa-solid fa-x"></i></button></div>
+            
+        </div>
+
+        <button onclick="" id="addE"><i class="fa-solid fa-plus"></i>Add Exercise</button>
     </div>
     <script src="./sample.js"></script>
 </body>
