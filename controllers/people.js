@@ -43,7 +43,7 @@ const updateUser = async(req,res)=>{
     try {
         let {userID} = req.params;
         let {routines, height, weight} = req.body;
-        let changePerson = User.findById(userID)
+        let changePerson = User.findOne({userID});
 
         if(!routines){
             routines = changePerson.routines;

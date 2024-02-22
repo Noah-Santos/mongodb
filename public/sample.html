@@ -12,13 +12,17 @@
         <a href="tutorial.html">Tutorial</a>
     </nav>
     <div id="bigCon">
+        <div class="newRoutine hide">
+            <input type="text" placeholder="Routine Name" id="routineName">
+            <button onclick="createRoutine()">Create</button>
+        </div>
         <div>
             <select name="routine" id="routine">
                 <option value="1">Push Day</option>
                 <option value="2">Pull Day</option>
                 <option value="3">Leg Day</option>
             </select>
-            <button onclick="">Add Routine</button>
+            <button onclick="addRoutine()">Add Routine</button>
             <button onclick="deleteRoutine()">Delete Routine</button>
         </div>
         
