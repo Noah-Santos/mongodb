@@ -11,12 +11,18 @@
 <body>
     <div class="registerContainer">
         <div class="registerImg">
-            <img src="./Images/register.png" alt="Login Cartoon" />
+            <img src="./Images/register.png" alt="Register Cartoon" />
         </div>
         <div class="registerForm">
             <article class='form'>
-                <h1 class="registerTitle">Create an Account</h1>
-                <p class="registerSubTitle">Create Account To Continue Using the Site</p>
+                <h1 class="registerTitle">Create An Account</h1>
+                <p class="registerSubTitle">Create Account To Continue Using The Site</p>
+                <br>
+                <div class='form-control'>
+                    <label htmlFor="name">Name:</label>
+                    <br>
+                    <input type="name" name='name' id='name' class="registerInput" placeholder="Enter Your Name" />
+                </div>
                 <br>
                 <div class='form-control'>
                     <label htmlFor="email">Email:</label>
@@ -31,28 +37,25 @@
                         placeholder="Enter Your Password" />
                 </div>
                 <br>
+                <button class="registerButton" onclick="register()">Register</button>
                 <br>
-                <button class="registerButton" onclick="register()">Login</button>
-                <br>
-                <br>
-                <p class="otherTitle">Or Login With</p>
+                <p class="otherTitle">Or Register With</p>
                 <br>
                 <div class="registerOther">
-                    <div class="appleLogin socialLogin">
+                    <div class="appleRegister socialRegister">
                         <img src="https://pngimg.com/d/apple_logo_PNG19666.png" alt="Apple" />
                     </div>
-                    <div class="googleLogin socialLogin">
+                    <div class="googleRegister socialRegister">
                         <img src="https://img.freepik.com/freie-ikonen/chrom_318-674221.jpg" alt="Google" />
                     </div>
-                    <div class="facebookLogin socialLogin">
+                    <div class="facebookRegister socialRegister">
                         <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png"
                             alt="Facebook" />
                     </div>
                 </div>
                 <br>
-                <br>
                 <p class="wrongPage">
-                    <span>Have an account?</span> <a class="registerRedirect">Login Here</a>
+                    <span>Have an account?</span> <a href="./login.html" class="registerRedirect">Login Here</a>
                 </p>
 
             </article>

@@ -124,7 +124,7 @@ body {
     justify-content: space-evenly;
 }
 
-.registerContainer .registerOther .socialLogin {
+.registerContainer .registerOther .socialRegister {
     cursor: pointer;
     height: 3.5rem;
     padding: 5px;
@@ -134,7 +134,7 @@ body {
     justify-content: center;
 }
 
-.registerContainer .registerOther .socialLogin img {
+.registerContainer .registerOther .socialRegister img {
     height: 100%;
     object-fit: contain;
 }

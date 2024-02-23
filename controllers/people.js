@@ -29,7 +29,12 @@ const createUser = async(req,res)=>{
         let allUser = await User.find({});
         let {username, email, password, routines} = req.body;
 
-        let newPerson = await User.create({username:username, email:email, password:password, routines:routines, userID:allUser.length+1});
+        routines = {
+            name: 'arm day',
+            exercises: [],
+        }
+
+        let newPerson = await User.create({username:username, email:email, password:password, routines:routines, userID:allUser.length});
         allUser = await User.find({});
         res.json(allUser);
 

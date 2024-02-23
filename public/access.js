@@ -24,10 +24,38 @@ async function login(){
     let password = document.getElementById('password').value;
 
     users.map(user=>{
-        if(user.email == email || user.password == password){
+        if(user.email == email && user.password == password){
             sessionStorage.setItem('signedIn', true);
             sessionStorage.setItem('currentUser', JSON.stringify(user));
             window.location.href = './sample.html';
         }
     })
+}
+
+// function to create an account
+async function register(){
+    let users = await fetchUsers();
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    let available = true;
+    users.map(user=>{
+        if(user.email == email){
+            available = false;
+        }
+    })
+
+    if(available){
+        fetch('/people',{
+            method: 'POST',
+            body: JSON.stringify({username: name, email, password}),
+            headers: {'Content-Type': 'application/json'},
+        })
+        window.location.href = './login.html';
+    }else{
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('password').value = '';
+    }
 }
