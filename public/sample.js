@@ -4,11 +4,10 @@ if(!signedIn){
     window.location.href = './login.html';
 }
 let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-console.log(currentUser);
 let routineSection = document.querySelector('#routine');
 let exerciseSection = document.getElementById('exerciseSection');
 
-// gest the list of users and finds the current user
+// gest the list of users and finds the current user to make sure that the user info is up to date
 const fetchUsers = async()=>{
     try {
         const data = await fetch('/people').then(response=>{
@@ -43,7 +42,6 @@ async function createRoutine(){
     let currentUser = await fetchUsers();
     let routines = currentUser.routines;
     routines.push(newRoutine);
-    console.log(`Routines: ${routines}`)
     await fetch(`/people/${currentUser.userID}`, {
         method: "PUT",
         headers: {'Content-Type': 'application/json'},
