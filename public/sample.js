@@ -100,7 +100,7 @@ function cancelCreateExercise(){
 
 // function to create a new exercise
 async function createExercise(){
-    let exerciseInput = document.querySelector('.exerciseSection');
+    let exerciseInput = document.querySelector('.newExercise');
     let exerciseName = document.getElementById('exerciseName').value;
     let exerciseSets = document.getElementById('exerciseSets').value;
     let exerciseReps = document.getElementById('exerciseReps').value;
@@ -135,21 +135,18 @@ async function deleteExercise(index, rout){
     // let routineId = document.querySelector('#routine').value;
     let currentUser = await fetchUsers();
     let routine = currentUser.routines;
-    console.log(routine);
     let exerc = routine[rout].exercises;
-    console.log(exerc)
-    console.log(exerc[index]);
-
     exerc.splice(index, 1);
-    console.log(exerc)
+    let updatedRoutine = routine[rout];
+    updatedRoutine.exercises = exerc;
+    routine[rout] = updatedRoutine;
 
-    // routine.splice(routineId, 1);
-    // await fetch(`/people/${currentUser.userID}`, {
-    //     method: "PUT",
-    //     headers: {'Content-Type': 'application/json'},
-    //     body: JSON.stringify({routines:routine}),
-    // })
-    // showRoutines();
+    await fetch(`/people/${currentUser.userID}`, {
+        method: "PUT",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({routines:routine}),
+    })
+    showExercises(rout);
 }
 
 // function to display the exercises
@@ -171,7 +168,7 @@ async function showExercises(index){
                 <p>Reps - ${exercise.reps}</p>
                 <p>Weight - ${exercise.weight} lbs</p>
                 <div><button onclick=""><i class="fa-solid fa-pencil"></i></button>
-                    <button onclick=${deleteExercise(i, index)}><i class="fa-solid fa-x"></i></button>
+                    <button onclick="deleteExercise(${i}, ${index})"><i class="fa-solid fa-x"></i></button>
                 </div>
             </div>
         `
