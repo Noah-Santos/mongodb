@@ -1,7 +1,6 @@
 // denies users access into the sample application if they do not sign in
 let signedIn = sessionStorage.getItem('signedIn') || false;
-console.log(signedIn);
-if(signedIn){
+if(signedIn == 'true'){
     window.location.href = './sample.html';
 }
 

@@ -21,6 +21,12 @@ a{
     text-decoration: none;
     color: white;
 }
+nav div button{
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+}
 select{
     border-radius: 5px;
     padding: .5rem;

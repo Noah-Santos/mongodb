@@ -1,6 +1,8 @@
 // kicks user to the sign in page if they try to access the sample application without signing in
-let signedIn = sessionStorage.getItem('signedIn') || false;
-if(!signedIn){
+let signedIn = sessionStorage.getItem('signedIn');
+console.log(signedIn)
+if(signedIn == 'false'){
+    console.log('return')
     window.location.href = './login.html';
 }
 let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
