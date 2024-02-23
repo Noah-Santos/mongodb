@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./styles/sample.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="showRoutines(); showExercises(0)">
     <nav>
         <i class="fa-solid fa-dumbbell"></i>
         <div>
@@ -21,7 +21,7 @@
             <button onclick="cancelCreateRoutine()">Cancel</button>
         </div>
         <div>
-            <select name="routine" id="routine">
+            <select name="routine" id="routine" onchange="showExercises()">
                 <option value="1">Push Day</option>
                 <option value="2">Pull Day</option>
                 <option value="3">Leg Day</option>

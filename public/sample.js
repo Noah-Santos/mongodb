@@ -116,18 +116,45 @@ async function createExercise(){
         weight: exerciseWeight,
     };
 
-    let exerc = routine[routineNum].exercises;
+    let exerc = routine[Number(routineNum)].exercises;
     exerc.push(newExercise);    
-    routine[routineNum].exercises = exerc;
+    routine[Number(routineNum)].exercises = exerc;
 
     await fetch(`/people/${currentUser.userID}`, {
         method: "PUT",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({routines:routine}),
     })
+
+    exerciseInput.classList.add("hide");
+    showExercises(routineNum);
 }
 
 // function to display the exercises
-async function showExercises(){
+async function showExercises(index){
+    if(index == null){
+        index = document.getElementById('routine').value;
+    }
+    exerciseSection.innerHTML = '';
 
+    let routineNum = document.getElementById('routine').value;
+    let currentUser = await fetchUsers();
+    let routine = currentUser.routines;
+    let exerc = routine[index].exercises;
+    
+    let exercises = exerc.map((exercise, index)=>{
+        return `
+            <div class="routineCon">
+                <h2>${exercise.name}</h2>
+                <p>Sets - ${exercise.sets}</p>
+                <p>Reps - ${exercise.reps}</p>
+                <p>Weight - ${exercise.weight}lbs</p>
+                <div><button onclick=""><i class="fa-solid fa-pencil"></i></button>
+                    <button onclick=""><i class="fa-solid fa-x"></i></button>
+                </div>
+            </div>
+        `
+    });
+    exerciseSection.innerHTML = exercises.join('');
 }
+showExercises(0);
