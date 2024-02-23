@@ -33,6 +33,12 @@ function addRoutine(){
     routineInput.classList.remove("hide");
 }
 
+// cancels the create section
+function cancelCreateRoutine(){
+    let routineInput = document.querySelector('.newRoutine');
+    routineInput.classList.add("hide");
+}
+
 // function to create a new routine
 async function createRoutine(){
     let routineInput = document.querySelector('.newRoutine');
@@ -80,9 +86,45 @@ async function deleteRoutine(){
     showRoutines();
 }
 
+// function to show exercise create form
+function addExercise(){
+    let exerciseInput = document.querySelector('.newExercise');
+    exerciseInput.classList.remove("hide");
+}
+
+// cancels the create section
+function cancelCreateExercise(){
+    let exerciseInput = document.querySelector('.newExercise');
+    exerciseInput.classList.add("hide");
+}
+
 // function to create a new exercise
 async function createExercise(){
+    let exerciseInput = document.querySelector('.exerciseSection');
+    let exerciseName = document.getElementById('exerciseName').value;
+    let exerciseSets = document.getElementById('exerciseSets').value;
+    let exerciseReps = document.getElementById('exerciseReps').value;
+    let exerciseWeight = document.getElementById('exerciseWeight').value;
+    let routineNum = document.getElementById('routine').value;
+    let currentUser = await fetchUsers();
+    let routine = currentUser.routines;
 
+    let newExercise = {
+        name: exerciseName,
+        sets: exerciseSets,
+        reps: exerciseReps,
+        weight: exerciseWeight,
+    };
+
+    let exerc = routine[routineNum].exercises;
+    exerc.push(newExercise);    
+    routine[routineNum].exercises = exerc;
+
+    await fetch(`/people/${currentUser.userID}`, {
+        method: "PUT",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({routines:routine}),
+    })
 }
 
 // function to display the exercises

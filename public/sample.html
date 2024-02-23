@@ -18,6 +18,7 @@
         <div class="newRoutine hide">
             <input type="text" placeholder="Routine Name" id="routineName">
             <button onclick="createRoutine()">Create</button>
+            <button onclick="cancelCreateRoutine()">Cancel</button>
         </div>
         <div>
             <select name="routine" id="routine">
@@ -29,6 +30,14 @@
             <button onclick="deleteRoutine()">Delete Routine</button>
         </div>
         
+        <div class="newExercise hide">
+            <input type="text" placeholder="Exercise Name" id="exerciseName">
+            <input type="text" placeholder="Exercise Sets" id="exerciseSets">
+            <input type="text" placeholder="Exercise Reps" id="exerciseReps">
+            <input type="text" placeholder="Exercise Weight" id="exerciseWeight">
+            <button onclick="createExercise()">Create</button>
+            <button onclick="cancelCreateExercise()">Cancel</button>
+        </div>
         <div id="exerciseSection">
             <div class="routineCon">
                 <h2>Close Grip Bench</h2>
@@ -41,7 +50,7 @@
             </div>
         </div>
 
-        <button onclick="" id="addE"><i class="fa-solid fa-plus"></i>Add Exercise</button>
+        <button onclick="addExercise()" id="addE"><i class="fa-solid fa-plus"></i>Add Exercise</button>
     </div>
     <script src="./sample.js"></script>
     <script src="./logout.js"></script>
