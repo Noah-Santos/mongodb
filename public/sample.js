@@ -69,7 +69,7 @@ showRoutines();
 
 // function to delete a routine
 async function deleteRoutine(){
-    let routineId = document.querySelectors('#routine').value;
+    let routineId = document.querySelector('#routine').value;
     let routine = currentUser.routines;
     routine.splice(routineId, 1);
     await fetch(`/people/${currentUser.userID}`, {
@@ -77,6 +77,7 @@ async function deleteRoutine(){
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({routines:routine}),
     })
+    showRoutines();
 }
 
 // function to create a new exercise
