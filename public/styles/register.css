@@ -1,0 +1,218 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.registerContainer {
+    background-color: F0F2EF;
+    border-radius: 20px 0 20px 0;
+    display: flex;
+    width: 80vw;
+    height: 80vh;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.registerContainer .registerImg {
+    display: flex;
+    width: 33%;
+    height: 100%;
+    border-radius: 20px 0 0 0;
+    background-color: #00684A;
+    align-items: center;
+    justify-content: center;
+}
+
+.registerContainer .registerImg img {
+    width: 100%;
+}
+
+.registerContainer .registerForm {
+    /* font-family: "mont"; */
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 67%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.registerContainer .registerForm .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.registerContainer .registerTitle {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.registerContainer .registerSubTitle {
+    margin-top: 0;
+}
+
+.registerContainer .registerInput {
+    height: 2rem;
+    width: 100%;
+}
+
+.registerContainer .registerButton {
+    cursor: pointer;
+    border: none;
+    height: 2rem;
+    width: 4rem;
+    width: 30%;
+    color: white;
+    text-align: center;
+    margin: auto;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    background-color: #00684A;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.registerContainer .wrongPage {
+    text-align: center;
+}
+
+.registerContainer .registerRedirect {
+    cursor: pointer;
+    color: #1A85C1;
+}
+
+.registerContainer .otherTitle {
+    text-align: center;
+    position: relative;
+    margin: 20px 0;
+}
+
+.registerContainer .otherTitle::before,
+.registerContainer .otherTitle::after {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 1px;
+    background-color: #000;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.registerContainer .otherTitle::before {
+    left: 0;
+}
+
+.registerContainer .otherTitle::after {
+    right: 0;
+}
+
+.registerContainer .registerOther {
+    display: flex;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    justify-content: space-evenly;
+}
+
+.registerContainer .registerOther .socialLogin {
+    cursor: pointer;
+    height: 3.5rem;
+    padding: 5px;
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registerContainer .registerOther .socialLogin img {
+    height: 100%;
+    object-fit: contain;
+}
+
+/* @font-face {
+    font-family: "mont";
+    src: url("../../Fonts/Montserrat-VariableFont_wght.ttf");
+} */
+
+@media (max-width: 1200px) {
+    .registerContainer {
+        flex-direction: column;
+        box-shadow: none;
+    }
+
+    .registerContainer .registerImg {
+        width: 100%;
+    }
+
+    .registerContainer .registerTitle {
+        font-size: 1.75rem;
+    }
+
+    .registerContainer .registerButton {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .registerContainer .otherTitle {
+        text-align: center;
+        position: relative;
+        margin: 20px 0;
+    }
+
+    .registerContainer .otherTitle::before,
+    .registerContainer .otherTitle::after {
+        content: "";
+        position: absolute;
+        width: 30%;
+        height: 1px;
+        background-color: #000;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (max-width: 600px) {
+    .registerContainer {
+        flex-direction: column;
+        box-shadow: none;
+    }
+
+    .registerContainer .registerImg {
+        width: 100%;
+    }
+
+    .registerContainer .registerTitle {
+        font-size: 1rem;
+    }
+
+    .registerContainer .registerButton {
+        width: 100%;
+    }
+
+    .registerContainer .otherTitle {
+        text-align: center;
+        position: relative;
+        margin: 20px 0;
+    }
+
+    .registerContainer .otherTitle::before,
+    .registerContainer .otherTitle::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        background-color: #000;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

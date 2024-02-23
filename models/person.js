@@ -15,18 +15,18 @@ const PersonSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Must provide a password'],
     },
-    weight:{
-        type: Number,
-        required: [true, 'Must provide a weight'],
-    },
-    height:{
-        type: Number,
-        required: [true, 'Must provide a height'],
-    },
-    age:{
-        type: Number,
-        required: [true, 'Must provide an age'],
-    },
+    // weight:{
+    //     type: Number,
+    //     required: [true, 'Must provide a weight'],
+    // },
+    // height:{
+    //     type: Number,
+    //     required: [true, 'Must provide a height'],
+    // },
+    // age:{
+    //     type: Number,
+    //     required: [true, 'Must provide an age'],
+    // },
     routines:{
         type: Array,
         default: []

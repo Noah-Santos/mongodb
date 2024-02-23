@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/register.css">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Sign Up</h1>
-    <a href="./login.html">Login</a>
+    <div class="registerContainer">
+        <div class="registerImg">
+            <img src="./Images/register.png" alt="Login Cartoon" />
+        </div>
+        <div class="registerForm">
+            <article class='form'>
+                <h1 class="registerTitle">Create an Account</h1>
+                <p class="registerSubTitle">Create Account To Continue Using the Site</p>
+                <br>
+                <div class='form-control'>
+                    <label htmlFor="email">Email:</label>
+                    <br>
+                    <input type="email" name='email' id='email' class="registerInput" placeholder="Enter Your Email" />
+                </div>
+                <br>
+                <div class='form-control'>
+                    <label htmlFor="password">Password:</label>
+                    <br>
+                    <input type="password" name='password' id='password' class="registerInput"
+                        placeholder="Enter Your Password" />
+                </div>
+                <br>
+                <br>
+                <button class="registerButton" onclick="register()">Login</button>
+                <br>
+                <br>
+                <p class="otherTitle">Or Login With</p>
+                <br>
+                <div class="registerOther">
+                    <div class="appleLogin socialLogin">
+                        <img src="https://pngimg.com/d/apple_logo_PNG19666.png" alt="Apple" />
+                    </div>
+                    <div class="googleLogin socialLogin">
+                        <img src="https://img.freepik.com/freie-ikonen/chrom_318-674221.jpg" alt="Google" />
+                    </div>
+                    <div class="facebookLogin socialLogin">
+                        <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png"
+                            alt="Facebook" />
+                    </div>
+                </div>
+                <br>
+                <br>
+                <p class="wrongPage">
+                    <span>Have an account?</span> <a class="registerRedirect">Login Here</a>
+                </p>
+
+            </article>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
+    <script src="./access.js"></script>
 </body>
+
 </html>

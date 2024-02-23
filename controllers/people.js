@@ -27,9 +27,9 @@ const findUser = async(req,res)=>{
 const createUser = async(req,res)=>{
     try {
         let allUser = await User.find({});
-        let {username, email, password, weight, height, age, routines} = req.body;
+        let {username, email, password, routines} = req.body;
 
-        let newPerson = await User.create({username:username, email:email, password:password, weight:weight, height:height, age:age, routines:routines, userID:allUser.length+1});
+        let newPerson = await User.create({username:username, email:email, password:password, routines:routines, userID:allUser.length+1});
         allUser = await User.find({});
         res.json(allUser);
 
@@ -42,20 +42,20 @@ const createUser = async(req,res)=>{
 const updateUser = async(req,res)=>{
     try {
         let {userID} = req.params;
-        let {routines, height, weight} = req.body;
+        let {routines} = req.body;
         let changePerson = User.findOne({userID});
 
         if(!routines){
             routines = changePerson.routines;
         }
-        if(!height){
-            height = changePerson.height;
-        }
-        if(!weight){
-            weight = changePerson.weight;
-        }
+        // if(!height){
+        //     height = changePerson.height;
+        // }
+        // if(!weight){
+        //     weight = changePerson.weight;
+        // }
 
-        let people = await User.findOneAndUpdate({userID:userID}, {routines:routines, height:height, weight:weight});
+        let people = await User.findOneAndUpdate({userID:userID}, {routines:routines});
         res.json(people);
     } catch (error) {
         console.log(error);
