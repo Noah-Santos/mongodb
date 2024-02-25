@@ -4,102 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="./styles/tutorial.css">
     <title>Navigation Bar Example</title>
-    <style>
-        html,
-        body {
-            height: 100%;
-            min-height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav {
-            width: 200px;
-            background-color: #f0f0f0;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            height: 100%;
-            overflow-y: auto;
-            flex: 0 0 auto;
-            position: fixed;
-            top: 0;
-        }
-
-        nav a {
-            display: block;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            padding: 5px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #ddd;
-        }
-
-        main {
-            flex-grow: 1;
-            padding-left: 3rem;
-            padding-bottom: 3rem;
-            /* Added this line for left and right padding */
-            margin-left: 220px;
-        }
-
-        .content {
-            display: none;
-        }
-
-        .content.active {
-            display: block;
-        }
-    </style>
     
 </head>
 
 <body>
-
-    <nav id="sidebar">
-        <a href="#" onclick="showContent('home')">Home</a>
-        <a href="#" onclick="showContent('about')">About</a>
-        <a href="#" onclick="showContent('contact')">Contact</a>
+    <nav>
+        <i class="fa-solid fa-dumbbell"></i>
+        <div>
+            <button onclick="logout()">Logout</button>
+            <a href="tutorial.html">Tutorial</a>
+        </div>
     </nav>
+    <div id="sidebar">
+        <a href="#" onclick="showContent('intro')">Intro</a>
+        <a href="#" onclick="showContent('rust')">RUST</a>
+        <a href="#" onclick="showContent('models')">Models</a>
+    </div>
 
     <main>
-        <div id="home" class="content active">
-            <h1>Home Content</h1>
-            <p>This is the content for the Home page.</p>
+        <div id="intro" class="content active">
+            <h1>Content1</h1>
+            <p>This is the content</p>
         </div>
 
-        <div id="about" class="content">
-            <h1>About Content</h1>
-            <p>This is the content for the About page.</p>
+        <div id="rust" class="content">
+            <h1>Content2</h1>
+            <p>This is the content</p>
         </div>
 
-        <div id="contact" class="content">
-            <h1>Contact Content</h1>
-            <p>This is the content for the Contact page.</p>
+        <div id="models" class="content">
+            <h1>Content3</h1>
+            <p>This is the content</p>
         </div>
     </main>
-
-    <script>
-        function showContent(contentId) {
-            // Hide all content divs
-            var contentDivs = document.querySelectorAll('.content');
-            contentDivs.forEach(function (div) {
-                div.classList.remove('active');
-            });
-
-            // Show the selected content div
-            var selectedContent = document.getElementById(contentId);
-            selectedContent.classList.add('active');
-        }
-    </script>
    <script src="tutorial.js"></script>
 <script src="https://kit.fontawesome.com/b45185f8d5.js" crossorigin="anonymous"></script>
 

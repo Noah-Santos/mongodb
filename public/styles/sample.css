@@ -16,6 +16,7 @@ nav{
     height: calc(10vh - 2rem);;
     background-color: black;
     color: white;
+    align-items: center;
 }
 a{
     text-decoration: none;

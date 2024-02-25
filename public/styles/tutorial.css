@@ -1,39 +1,23 @@
-nav {
-    display: flex;
-    justify-content: space-between;
-    font-size: 2rem;
-    padding: 1rem;
-    width: calc(100% - 2rem);
-    height: calc(10vh - 2rem);
-    ;
-    background-color: black;
-    color: white;
-}
-a {
-    text-decoration: none;
-    color: white;
-}
-nav div button {
-    color: white;
-    background-color: transparent;
-    border: none;
-    font-size: 2rem;
-}
-body,html {
-    font-family: Arial, sans-serif;
+html,
+body {
+
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
-nav {
-    width: 200px;
+#sidebar{
+    width: 10rem;
     background-color: #f0f0f0;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    overflow-y: auto;
+    flex: 0 0 auto;
+    position: fixed;
+    top: calc(10vh);
 }
 
-nav a {
+#sidebar a {
     display: block;
     margin-bottom: 10px;
     text-decoration: none;
@@ -44,13 +28,15 @@ nav a {
     transition: background-color 0.3s;
 }
 
-nav a:hover {
+#sidebar a:hover {
     background-color: #ddd;
 }
 
 main {
     flex-grow: 1;
-    padding: 20px;
+    padding-left: 3rem;
+    padding-bottom: 3rem;
+    margin-left: 10rem;
 }
 
 .content {
@@ -59,4 +45,31 @@ main {
 
 .content.active {
     display: block;
+}
+@font-face {
+    font-family: unit;
+    src: url(../fonts/Unitblock.ttf);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    padding: 1rem;
+    width: calc(100% - 2rem);
+    height: calc(10vh - 2rem);
+    ;
+    background-color: black;
+    color: white;
+    align-items: center;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+nav div button {
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
 }
