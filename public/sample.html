@@ -16,9 +16,12 @@
     </nav>
     <div id="bigCon">
         <div class="newRoutine hide">
-            <input type="text" placeholder="Routine Name" id="routineName">
-            <button onclick="createRoutine()">Create</button>
-            <button onclick="cancelCreateRoutine()">Cancel</button>
+            <label for="routineName" id="routineNameLabel">Name</label>
+            <input type="text" id="routineName">
+            <div id="routineBtnCont">
+                <button onclick="createRoutine()" class="routineNameBtn">Create</button>
+                <button onclick="cancelCreateRoutine()" class="routineNameBtn">Cancel</button>
+            </div>
         </div>
         <div>
             <select name="routine" id="routine" onchange="showExercises()">
@@ -31,12 +34,18 @@
         </div>
         
         <div class="newExercise hide">
-            <input type="text" placeholder="Exercise Name" id="exerciseName">
-            <input type="text" placeholder="Exercise Sets" id="exerciseSets">
-            <input type="text" placeholder="Exercise Reps" id="exerciseReps">
-            <input type="text" placeholder="Exercise Weight" id="exerciseWeight">
-            <button onclick="createExercise()">Create</button>
-            <button onclick="cancelCreateExercise()">Cancel</button>
+            <label for="exerciseName" class="exerciseInfoLabel">Name</label>
+            <input type="text" class="exerciseInfo" id="exerciseName">
+            <label for="exerciseSets" class="exerciseInfoLabel">Sets</label>
+            <input type="text" class="exerciseInfo" id="exerciseSets">
+            <label for="exerciseReps" class="exerciseInfoLabel">Reps</label>
+            <input type="text" class="exerciseInfo" id="exerciseReps">
+            <label for="exerciseWeight" class="exerciseInfoLabel">Weight</label>
+            <input type="text" class="exerciseInfo" id="exerciseWeight">
+            <div id="exerciseBtnCont">
+                <button onclick="createExercise()" class="exerciseNameBtn">Create</button>
+                <button onclick="cancelCreateExercise()" class="exerciseNameBtn">Cancel</button>
+            </div>
         </div>
         <div id="exerciseSection">
             <div class="routineCon">
