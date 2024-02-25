@@ -50,7 +50,9 @@ main {
     font-family: unit;
     src: url(../fonts/Unitblock.ttf);
 }
-
+nav img{
+    width: 4rem;
+}
 nav {
     display: flex;
     justify-content: space-between;
