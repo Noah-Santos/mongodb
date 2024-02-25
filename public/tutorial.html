@@ -1,22 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/sample.css">
-    <title>Document</title>
+    <title>Navigation Bar Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+    </style>
 </head>
+
 <body>
-    <nav>
-        <i class="fa-solid fa-dumbbell"></i>
-        <div>
-            <button onclick="logout()">Logout</button>
-            <a href="sample.html">Sample</a>
-        </div>
+
+    <nav id="sidebar">
+        <a href="#" onclick="showContent('home')">Home</a>
+        <a href="#" onclick="showContent('about')">About</a>
+        <a href="#" onclick="showContent('contact')">Contact</a>
     </nav>
-    <script src="./sample.js"></script>
-    <script src="./logout.js"></script>
+
+    <main>
+        <div id="home" class="content active">
+            <h1>Home Content</h1>
+            <p>This is the content for the Home page.</p>
+        </div>
+
+        <div id="about" class="content">
+            <h1>About Content</h1>
+            <p>This is the content for the About page.</p>
+        </div>
+
+        <div id="contact" class="content">
+            <h1>Contact Content</h1>
+            <p>This is the content for the Contact page.</p>
+        </div>
+    </main>
+
+    <script>
+        function showContent(contentId) {
+            var contentDivs = document.querySelectorAll('.content');
+            contentDivs.forEach(function (div) {
+                div.classList.remove('active');
+            });
+
+            var selectedContent = document.getElementById(contentId);
+            selectedContent.classList.add('active');
+        }
+    </script>
+
 </body>
-<script src="https://kit.fontawesome.com/b45185f8d5.js" crossorigin="anonymous"></script>
 
 </html>
