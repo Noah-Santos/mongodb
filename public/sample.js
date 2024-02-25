@@ -130,6 +130,11 @@ async function createExercise(){
     showExercises(routineNum);
 }
 
+// function to edit exercises
+async function editExercise(exerciseId){
+    
+}
+
 // function to delete a exercise
 async function deleteExercise(index, rout){
     // let routineId = document.querySelector('#routine').value;
