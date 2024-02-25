@@ -5,6 +5,7 @@ if(signedIn == 'false'){
     console.log('return')
     window.location.href = './login.html';
 }
+
 let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 let routineSection = document.querySelector('#routine');
 let exerciseSection = document.getElementById('exerciseSection');
@@ -98,6 +99,30 @@ function cancelCreateExercise(){
     exerciseInput.classList.add("hide");
 }
 
+// function to show edit exercise form and auto fill the values
+async function addEditExercise(exerciseIndex){
+    let exerciseInput = document.querySelector('.editExercise');
+    exerciseInput.classList.remove("hide");
+    sessionStorage.setItem('exerciseIndex', exerciseIndex);
+    let routineNum = document.getElementById('routine').value;
+    let currentUser = await fetchUsers();
+    let routine = currentUser.routines;
+    let exerc = routine[Number(routineNum)].exercises;
+    exerc = exerc[exerciseIndex];
+    console.log(exerc)
+
+    document.getElementById('editExerciseName').value = exerc.name;
+    document.getElementById('editExerciseSets').value = exerc.sets;
+    document.getElementById('editExerciseReps').value = exerc.reps;
+    document.getElementById('editExerciseWeight').value = exerc.weight;
+}
+
+// cancels the edit section
+function cancelEditExercise(){
+    let exerciseInput = document.querySelector('.editExercise');
+    exerciseInput.classList.add("hide");
+}
+
 // function to create a new exercise
 async function createExercise(){
     let exerciseInput = document.querySelector('.newExercise');
@@ -131,8 +156,37 @@ async function createExercise(){
 }
 
 // function to edit exercises
-async function editExercise(exerciseId){
-    
+async function editExercise(){
+    let exerciseInput = document.querySelector('.editExercise');
+    let exerciseName = document.getElementById('editExerciseName').value;
+    let exerciseSets = document.getElementById('editExerciseSets').value;
+    let exerciseReps = document.getElementById('editExerciseReps').value;
+    let exerciseWeight = document.getElementById('editExerciseWeight').value;
+    let routineNum = document.getElementById('routine').value;
+    let i = sessionStorage.getItem('exerciseIndex');
+    let currentUser = await fetchUsers();
+    let routine = currentUser.routines;
+
+    let newExercise = {
+        name: exerciseName,
+        sets: exerciseSets,
+        reps: exerciseReps,
+        weight: exerciseWeight,
+    };
+
+    let exerc = routine[Number(routineNum)].exercises;
+    exerc[i] = newExercise; 
+    routine[Number(routineNum)].exercises = exerc;
+    console.log(routine);
+
+    await fetch(`/people/${currentUser.userID}`, {
+        method: "PUT",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({routines:routine}),
+    })
+
+    exerciseInput.classList.add("hide");
+    showExercises(routineNum);
 }
 
 // function to delete a exercise
@@ -172,7 +226,7 @@ async function showExercises(index){
                 <p>Sets - ${exercise.sets}</p>
                 <p>Reps - ${exercise.reps}</p>
                 <p>Weight - ${exercise.weight} lbs</p>
-                <div><button onclick=""><i class="fa-solid fa-pencil"></i></button>
+                <div><button onclick="addEditExercise(${i})"><i class="fa-solid fa-pencil"></i></button>
                     <button onclick="deleteExercise(${i}, ${index})"><i class="fa-solid fa-x"></i></button>
                 </div>
             </div>

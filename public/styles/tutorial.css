@@ -1,10 +1,13 @@
 html,
 body {
-
-    margin: 0;
-    padding: 0;
+    padding: 0%;
+    margin: 0%;
+    font-family: unit;
 }
-
+@font-face {
+    font-family: unit;
+    src: url(../fonts/Unitblock.ttf);
+}
 #sidebar{
     width: 10rem;
     background-color: #f0f0f0;
@@ -26,6 +29,7 @@ body {
     padding: 5px;
     border-radius: 5px;
     transition: background-color 0.3s;
+    font-size: 2rem;
 }
 
 #sidebar a:hover {
@@ -74,4 +78,5 @@ nav div button {
     background-color: transparent;
     border: none;
     font-size: 2rem;
+    font-family: unit;
 }

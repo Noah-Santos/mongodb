@@ -47,6 +47,20 @@
                 <button onclick="cancelCreateExercise()" class="exerciseNameBtn">Cancel</button>
             </div>
         </div>
+        <div class="editExercise hide">
+            <label for="exerciseName" class="exerciseInfoLabel">Name</label>
+            <input type="text" class="exerciseInfo" id="editExerciseName">
+            <label for="exerciseSets" class="exerciseInfoLabel">Sets</label>
+            <input type="text" class="exerciseInfo" id="editExerciseSets">
+            <label for="exerciseReps" class="exerciseInfoLabel">Reps</label>
+            <input type="text" class="exerciseInfo" id="editExerciseReps">
+            <label for="exerciseWeight" class="exerciseInfoLabel">Weight</label>
+            <input type="text" class="exerciseInfo" id="editExerciseWeight">
+            <div id="exerciseBtnCont">
+                <button onclick="editExercise()" class="exerciseNameBtn">Edit</button>
+                <button onclick="cancelEditExercise()" class="exerciseNameBtn">Cancel</button>
+            </div>
+        </div>
         <div id="exerciseSection">
             <div class="routineCon">
                 <h2>Close Grip Bench</h2>

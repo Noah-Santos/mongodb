@@ -27,6 +27,7 @@ nav div button{
     background-color: transparent;
     border: none;
     font-size: 2rem;
+    font-family: unit;
 }
 select{
     border-radius: 5px;
@@ -125,6 +126,16 @@ button{
     justify-content: center;
 }
 .newExercise {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    background-color: #D9D9D9;
+    position: fixed;
+    top: 33%;
+    left: 40%;
+}
+.editExercise {
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
