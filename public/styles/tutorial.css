@@ -102,10 +102,28 @@ nav div button {
     margin: 0.25rem 0rem 0.75rem 1.25rem;
     width: 90%;
 }
+.imageContent{
+    width: 100%;
+}
 .sectionHeader{
     font-size: 2.5rem;
     margin: 0.5rem 0rem 0.75rem 0.75rem;
 }
 .sectionImg{
     float: right;
+}
+#mongoDBLogo{
+    width: auto;
+    height: 10rem;
+    margin-left: 1rem;
+}
+.imageCont{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-items: center;
+}
+.vertical{
+    display: flex;
+    flex-direction: column;
 }
