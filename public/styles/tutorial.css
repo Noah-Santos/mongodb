@@ -118,14 +118,11 @@ nav div button {
 .sectionImg{
     float: right;
     margin-left: 1rem;
+    height: 10rem;
 }
 #mongoDBLogo{
     width: auto;
     height: 10rem;
-}
-#signing{
-    width: auto;
-    height: 7.5rem;
 }
 .imageCont{
     display: flex;
