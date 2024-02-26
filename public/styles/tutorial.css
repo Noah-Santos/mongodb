@@ -123,9 +123,14 @@ nav div button {
     width: auto;
     height: 10rem;
 }
+#signing{
+    width: auto;
+    height: 7.5rem;
+}
 .imageCont{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 95%;
     align-items: center;
 }
