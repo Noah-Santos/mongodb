@@ -1,8 +1,6 @@
 // kicks user to the sign in page if they try to access the sample application without signing in
 let signedIn = sessionStorage.getItem('signedIn');
-console.log(signedIn)
 if(signedIn == 'false'){
-    console.log('return')
     window.location.href = './login.html';
 }
 
@@ -42,7 +40,7 @@ function cancelCreateRoutine(){
 
 // function to create a new routine
 async function createRoutine(){
-    let routineInput = document.querySelector('.newRoutine');
+    // gets the routine name from the user and creates a new object
     let routineName = document.getElementById('routineName').value;
     let newRoutine = {
         name:routineName,
@@ -50,13 +48,17 @@ async function createRoutine(){
     }
     let currentUser = await fetchUsers();
     let routines = currentUser.routines;
+    // it adds the new object to the user's routines and pushes that into MongoDB
     routines.push(newRoutine);
     await fetch(`/people/${currentUser.userID}`, {
         method: "PUT",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({routines:routines}),
     })
+    // hides the create routine section
+    let routineInput = document.querySelector('.newRoutine');
     routineInput.classList.add("hide");
+    // updates the routine dropdown
     showRoutines();
 }
 
@@ -76,6 +78,7 @@ showRoutines();
 
 // function to delete a routine
 async function deleteRoutine(){
+    // gets the index of the selected routine and removes it from the array and then pushes the updated array into MongoDB
     let routineId = document.querySelector('#routine').value;
     let routine = currentUser.routines;
     routine.splice(routineId, 1);
@@ -101,23 +104,25 @@ function cancelCreateExercise(){
 
 // function to show edit exercise form and auto fill the values
 async function addEditExercise(exerciseIndex){
+    // displays the edit exercise form
     let exerciseInput = document.querySelector('.editExercise');
     exerciseInput.classList.remove("hide");
+    // sets the current exercise index in the session storage
     sessionStorage.setItem('exerciseIndex', exerciseIndex);
+    // gets the current exercise object from the user
     let routineNum = document.getElementById('routine').value;
     let currentUser = await fetchUsers();
     let routine = currentUser.routines;
     let exerc = routine[Number(routineNum)].exercises;
     exerc = exerc[exerciseIndex];
-    console.log(exerc)
-
+    // auto fills the input elements with the current exercise value
     document.getElementById('editExerciseName').value = exerc.name;
     document.getElementById('editExerciseSets').value = exerc.sets;
     document.getElementById('editExerciseReps').value = exerc.reps;
     document.getElementById('editExerciseWeight').value = exerc.weight;
 }
 
-// cancels the edit section
+// hides the edit exercise section
 function cancelEditExercise(){
     let exerciseInput = document.querySelector('.editExercise');
     exerciseInput.classList.add("hide");
@@ -125,73 +130,73 @@ function cancelEditExercise(){
 
 // function to create a new exercise
 async function createExercise(){
-    let exerciseInput = document.querySelector('.newExercise');
+    // gest the values from the user
     let exerciseName = document.getElementById('exerciseName').value;
     let exerciseSets = document.getElementById('exerciseSets').value;
     let exerciseReps = document.getElementById('exerciseReps').value;
     let exerciseWeight = document.getElementById('exerciseWeight').value;
     let routineNum = document.getElementById('routine').value;
-    let currentUser = await fetchUsers();
-    let routine = currentUser.routines;
-
+    // creates a new exercise object with the user values
     let newExercise = {
         name: exerciseName,
         sets: exerciseSets,
         reps: exerciseReps,
         weight: exerciseWeight,
     };
-
+    // adds the exercise object to the exercise array of the current routine
+    let currentUser = await fetchUsers();
+    let routine = currentUser.routines;
     let exerc = routine[Number(routineNum)].exercises;
     exerc.push(newExercise);    
     routine[Number(routineNum)].exercises = exerc;
-
+    // pushes the updated information to MongoDB
     await fetch(`/people/${currentUser.userID}`, {
         method: "PUT",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({routines:routine}),
     })
-
+    // hides the create exercise form
+    let exerciseInput = document.querySelector('.newExercise');
     exerciseInput.classList.add("hide");
     showExercises(routineNum);
 }
 
 // function to edit exercises
 async function editExercise(){
-    let exerciseInput = document.querySelector('.editExercise');
+    // gets the updated values from the user
     let exerciseName = document.getElementById('editExerciseName').value;
     let exerciseSets = document.getElementById('editExerciseSets').value;
     let exerciseReps = document.getElementById('editExerciseReps').value;
     let exerciseWeight = document.getElementById('editExerciseWeight').value;
     let routineNum = document.getElementById('routine').value;
     let i = sessionStorage.getItem('exerciseIndex');
-    let currentUser = await fetchUsers();
-    let routine = currentUser.routines;
-
+    // creates a new exercise object with new values
     let newExercise = {
         name: exerciseName,
         sets: exerciseSets,
         reps: exerciseReps,
         weight: exerciseWeight,
     };
-
+    // replaces the old exercise object with the updated object
+    let currentUser = await fetchUsers();
+    let routine = currentUser.routines;
     let exerc = routine[Number(routineNum)].exercises;
     exerc[i] = newExercise; 
     routine[Number(routineNum)].exercises = exerc;
-    console.log(routine);
-
+    // pushes the edited information to MongoDB
     await fetch(`/people/${currentUser.userID}`, {
         method: "PUT",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({routines:routine}),
     })
-
+    // hides the edit exercise form
+    let exerciseInput = document.querySelector('.editExercise');
     exerciseInput.classList.add("hide");
     showExercises(routineNum);
 }
 
 // function to delete a exercise
 async function deleteExercise(index, rout){
-    // let routineId = document.querySelector('#routine').value;
     let currentUser = await fetchUsers();
     let routine = currentUser.routines;
     let exerc = routine[rout].exercises;
