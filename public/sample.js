@@ -72,8 +72,8 @@ async function showRoutines(){
         `
     });
     routineSection.innerHTML = routines.join('');
-
 }
+// updates the routine section
 showRoutines();
 
 // function to delete a routine
@@ -87,6 +87,7 @@ async function deleteRoutine(){
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({routines:routine}),
     })
+    // updates the routine section
     showRoutines();
 }
 
@@ -158,6 +159,7 @@ async function createExercise(){
     // hides the create exercise form
     let exerciseInput = document.querySelector('.newExercise');
     exerciseInput.classList.add("hide");
+    // updates the exercise section
     showExercises(routineNum);
 }
 
@@ -192,38 +194,44 @@ async function editExercise(){
     // hides the edit exercise form
     let exerciseInput = document.querySelector('.editExercise');
     exerciseInput.classList.add("hide");
+    // updates the exercise section
     showExercises(routineNum);
 }
 
 // function to delete a exercise
 async function deleteExercise(index, rout){
+    // gets the array of exercises from the current user
     let currentUser = await fetchUsers();
     let routine = currentUser.routines;
     let exerc = routine[rout].exercises;
+    // removes the exercise from the array
     exerc.splice(index, 1);
     let updatedRoutine = routine[rout];
     updatedRoutine.exercises = exerc;
     routine[rout] = updatedRoutine;
-
+    // pushes the edited array into MongoDB
     await fetch(`/people/${currentUser.userID}`, {
         method: "PUT",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({routines:routine}),
     })
+    // updates the exercise section
     showExercises(rout);
 }
 
 // function to display the exercises
 async function showExercises(index){
+    // gets the current, selected routine
     if(index == null){
         index = document.getElementById('routine').value;
     }
+    // empties the section to prepare it for the updated exercises
     exerciseSection.innerHTML = '';
-
+    // gets the array of exercises from the current routine
     let currentUser = await fetchUsers();
     let routine = currentUser.routines;
     let exerc = routine[index].exercises;
-    
+    // maps through the exercise array and creates the html for each exercise
     let exercises = exerc.map((exercise, i)=>{
         return `
             <div class="routineCon">
@@ -237,6 +245,8 @@ async function showExercises(index){
             </div>
         `
     });
+    // displays the html to the website
     exerciseSection.innerHTML = exercises.join('');
 }
+// updates the exercise section
 showExercises(0);

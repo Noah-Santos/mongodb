@@ -16,12 +16,13 @@ const fetchUsers = async()=>{
     }
 }
 
-// checks to see if the user credentials match a user in the database
+// login function
 async function login(){
+    // gets the email and password from the user
     let users = await fetchUsers();
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-
+    // checks to see if the user credentials match a user in the database and signs them in if they do
     users.map(user=>{
         if(user.email == email && user.password == password){
             sessionStorage.setItem('signedIn', true);
@@ -33,18 +34,19 @@ async function login(){
 
 // function to create an account
 async function register(){
+    // gets the information from the user
     let users = await fetchUsers();
     let name = document.getElementById('name').value;
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-
+    // makes sure that the email is not already in use
     let available = true;
     users.map(user=>{
         if(user.email == email){
             available = false;
         }
     })
-
+    // adds the new user to the database if the email is available and sends the user to the login page
     if(available){
         fetch('/people',{
             method: 'POST',
@@ -53,6 +55,7 @@ async function register(){
         })
         window.location.href = './login.html';
     }else{
+        // empties the input fields if the email is already in use
         document.getElementById('name').value = '';
         document.getElementById('email').value = '';
         document.getElementById('password').value = '';
