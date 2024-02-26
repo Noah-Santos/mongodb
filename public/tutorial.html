@@ -46,17 +46,18 @@
             <hr class="sectionUnderline">
             <p class="sectionSubTitle">Why Use MongoDB over other Databases?</p>
             <p class="sectionHeader">1. High-performance applications</p>
-            <p class="sectionContent"></p>
+            <p class="sectionContent">MongoDB's scale-out architecture can support huge numbers of transactions on humongous databases. Unlike other databases that either cannot support such scale or can only do so with massive amounts of engineering and additional components, MongoDB has a clear path to scalability because of the way it was designed.</p>
             <p class="sectionHeader">2. User-friendliness</p>
-            <p class="sectionContent"></p>
+            <p class="sectionContent">MongoDB is an attractive option to developers. Its data storage philosophy is simple and immediately understandable to
+            anybody with programming experience. MongoDB stores data in collections with no enforced schema. This flexible approach to storing data makes it particularly suitable for developers who may not be database experts, yet want to use a database to support the development of their applications.</p>
             <p class="sectionHeader">3. Scalability</p>
-            <p class="sectionContent"></p>
+            <p class="sectionContent">A key benefit of the MongoDB design is that the database is extremely easy to scale. Configuring a sharded cluster allows a portion of the database, called a shard, to also be configured as a replica set. In a sharded cluster, data is distributed across many servers. This highly flexible approach allows MongoDB to horizontally scale both read and write performance to cater to applications of any scale.</p>
             <p class="sectionHeader">4. Performance</p>
-            <p class="sectionContent"></p>
+            <p class="sectionContent">MongoDB is also optimized for write performance, and features a specific insertMany() API for rapidly inserting data, prioritizing speed over transaction safety wherein MySQL data needs to be inserted row by row.</p>
             <p class="sectionHeader">5. Flexibility</p>
-            <p class="sectionContent"></p>
+            <p class="sectionContent">This is an easy one, and a hands-down win for MongoDB. The schemaless design of MongoDB documents makes it extremely easy to build and enhance applications over time, without needing to run complex and expensive schema migration processes as you would with a relational database. With MongoDB, there are more dynamic options for updating the schema of a collection, such as creating new fields based on an aggregation pipeline or updating nested array fields. This benefit is particularly important as databases grow in size.</p>
             <p class="sectionHeader">6. Security</p>
-            <p class="sectionContent"></p>
+            <p class="sectionContent">MongoDB leverages the popular role-based access control model with a flexible set of permissions. Users are assigned to a role, and that role grants them specific permissions over datasets and database operations. All communication is encrypted with TLS, and it's possible to write encrypted documents to MongoDB data collections using a master key which is never available to MongoDB, achieving encryption of data at rest. Introduced in MongoDB 7.0, Queryable Encryption allows users to apply randomized encryption to sensitive fields, store the encrypted values in the database and run expressive queries against those fields without decrypting them. This allows it to protect sensitive data during its entire lifecycle.</p>
         </div>
 
         <div id="cluster" class="content">

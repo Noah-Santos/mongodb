@@ -4,6 +4,9 @@ body {
     margin: 0%;
     font-family: unit;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
 @font-face {
     font-family: unit;
     src: url(../fonts/Unitblock.ttf);
@@ -69,6 +72,9 @@ nav {
     background-color: black;
     color: white;
     align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 nav a{
     text-decoration: none;
@@ -100,7 +106,7 @@ nav div button {
 .sectionContent{
     font-size: 2rem;
     margin: 0.25rem 0rem 0.75rem 1.25rem;
-    width: 90%;
+    width: 95%;
 }
 .imageContent{
     width: 100%;
@@ -111,16 +117,16 @@ nav div button {
 }
 .sectionImg{
     float: right;
+    margin-left: 1rem;
 }
 #mongoDBLogo{
     width: auto;
     height: 10rem;
-    margin-left: 1rem;
 }
 .imageCont{
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 95%;
     align-items: center;
 }
 .vertical{
