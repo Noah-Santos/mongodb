@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles/tutorial.css">
     <title>Navigation Bar Example</title>
     
@@ -64,8 +65,7 @@
             <p class="sectionTitle">Creating a Cluster</p>
             <hr class="sectionUnderline">
             <p class="sectionSubTitle">Creating a Cluster on MongoDB</p>
-            <iframe src="https://scribehow.com/embed/Create_a_MongoDB_Database__2C8Dp1e6S6iHKFmHXuKoqA" width="100%" height="640"
-                allowfullscreen frameborder="0"></iframe>
+            <iframe src="https://scribehow.com/embed/Create_a_MongoDB_Database__2C8Dp1e6S6iHKFmHXuKoqA" width="100%" height="640" allowfullscreen frameborder="0"></iframe>
         </div>
         </div>
 
@@ -73,12 +73,51 @@
             <p class="sectionTitle">Connecting to the Database through Nodejs</p>
             <hr class="sectionUnderline">
             <p class="sectionSubTitle">Linking to Database</p>
-            <p class="sectionHeader"></p>
+            <p class="sectionHeader">1. Getting the Connection String from MongoDB</p>
+            <iframe src="https://scribehow.com/embed/Getting_the_MongoDB_Connection_String__39hfoY85QZSmY6Xejfu9ZQ" width="100%" height="640" allowfullscreen frameborder="0"></iframe>
+            <p class="sectionHeader">2. Editing the Connection String</p>
+            <p class="sectionContent">Once you have the connection string, replace the "< username >" and "< password >" section with the username password that you assigned to the user when you were creating the cluster.</p>
         </div>
 
         <div id="editing" class="content">
-            <p class="sectionTitle">Editing Data with CRUD</p>
+            <p class="sectionTitle">Editing Data</p>
             <hr class="sectionUnderline">
+            <p class="sectionSubTitle">What are Schemas?</p>
+            <p class="sectionContent">Schemas are not required by MongoDB as it is has a schemaless design option. However, schemas are templates that are used to structure the data. Here is an example from the sample application:</p>
+            <div class="codeCont">
+                <pre>
+                    <code class="sectionContent codeSection language-js">
+                        const mongoose = require('mongoose');
+                    
+                        const PersonSchema = new mongoose.Schema({
+                            username:{
+                                type: String, // type determines the variable type
+                                required: [true, 'Must provide a name'], // required determines if the peice of data is required for the data entry or not
+                                trim: true, // trim will remove whitespace from start and end the string
+                            },
+                            email:{
+                                type: String,
+                                required: [true, 'Must provide an email'],
+                                trim: true,
+                            },
+                            password:{
+                                type: String,
+                                required: [true, 'Must provide a password'],
+                            },
+                            routines:{
+                                type: Array,
+                                default: []
+                            },
+                            userID:{
+                                type: Number,
+                                default: 0
+                            }
+                        },{collection: 'Users'})
+                    
+                        module.exports = mongoose.model('User', PersonSchema);
+                    </code>
+                </pre>
+            </div>
             <p class="sectionSubTitle">What does CRUD Mean?</p>
             <p class="sectionContent">CRUD stands for Creating, Reading, Updating, and Deleting, which are the 4 main methods of editing MongoDB data.</p>
             <p class="sectionHeader">Creating</p>
@@ -91,8 +130,9 @@
             <p class="sectionContent"></p>
         </div>
     </main>
-   <script src="tutorial.js"></script>
-   <script src="./logout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="tutorial.js"></script>
+    <script src="./logout.js"></script>
 <script src="https://kit.fontawesome.com/b45185f8d5.js" crossorigin="anonymous"></script>
 
 </body>

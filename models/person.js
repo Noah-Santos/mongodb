@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const PersonSchema = new mongoose.Schema({
     username:{
-        type: String,
-        required: [true, 'Must provide a name'],
-        trim: true,
+        type: String, // type determines the variable type
+        required: [true, 'Must provide a name'], // required determines if the peice of data is required for the data entry or not
+        trim: true, // trim will remove whitespace from start and end the string
     },
     email:{
         type: String,

@@ -108,6 +108,14 @@ nav div button {
     margin: 0.25rem 0rem 0.75rem 1.25rem;
     width: 95%;
 }
+.language-js{
+    border-radius: 0.5rem;
+    /* margin-left: 1.25rem; */
+    width: 90%;
+}
+.codeCont{
+    margin-left: 1.25rem;
+}
 .imageContent{
     width: 100%;
 }
