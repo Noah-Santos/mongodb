@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
+// const morgan = require('morgan');
+const mongoose = require('mongoose');
 require('dotenv').config();
-require('./db/connect');
 
 const people = require('./routes/people-controller');
 const connectDB = require('./db/connect');
