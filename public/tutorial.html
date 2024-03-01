@@ -143,9 +143,12 @@
                     
                         const PersonSchema = new mongoose.Schema({
                             username:{
-                                type: String, // type determines the variable type
-                                required: [true, 'Must provide a name'], // required determines if the peice of data is required for the data entry or not
-                                trim: true, // trim will remove whitespace from start and end the string
+                                // type determines the variable type
+                                type: String, 
+                                // required determines if the peice of data is required for the data entry or not
+                                required: [true, 'Must provide a name'], 
+                                // trim will remove whitespace from start and end the string
+                                trim: true, 
                             },
                             email:{
                                 type: String,
@@ -197,8 +200,9 @@
                                 }
                                 
                                 // creates a new user object in the MongoDB using the information received in the body
-                                let newPerson = await User.create({username:username, email:email, password:password, routines:routines,
-                                userID:allUser.length});
+                                let newPerson = await User.create({
+                                    username:username, email:email, password:password, routines:routines,userID:allUser.length
+                                });
                                 // gets all the users now, including the one just created
                                 allUser = await User.find({});
                                 // returns the data in a response object
@@ -216,9 +220,12 @@
                     <code class="sectionContent codeSection language-js">
                         // the url defines what route will be called
                         fetch('/',{
-                            method: 'POST', // determines the type of method that will be used
-                            body: JSON.stringify({username: name, email, password}), //passes information into the body of the request that will be used to create the new piece of data
-                            headers: {'Content-Type': 'application/json'}, // determines how data will be sent
+                            // determines the type of method that will be used
+                            method: 'POST', 
+                            //passes information into the body of the request that will be used to create the new piece of data
+                            body: JSON.stringify({username: name, email, password}), 
+                            // determines how data will be sent
+                            headers: {'Content-Type': 'application/json'}, 
                         })
                     </code>
                 </pre>
@@ -238,7 +245,7 @@
                             try {
                                 // gets the list of parameters based on the URL that is fetched from the JS code
                                 let {userID} = req.params;
-                                // searches the User variable for a piece of data that matches whatever is specified in the curly braces
+                                // searches the User variable for a piece of data that matches what is specified in the curly braces
                                 // findOne() returns the first piece of data that matches its search
                                 let person = await User.findOne({userID: userID});
                                 // returns the data in a response object
@@ -304,9 +311,12 @@
                     <code class="sectionContent codeSection language-js">
                         // passes a parameter in the URL that will be used to identify which user is being searched for
                         await fetch(`/people/${currentUser.userID}`, {
-                            method: "PUT", // determines the type of method that will be used
-                            headers: {'Content-Type': 'application/json'}, // determines how data will be sent
-                            body: JSON.stringify({routines:routines}), //passes information into the body of the request that will be used to update  data
+                            // determines the type of method that will be used
+                            method: "PUT", 
+                            // determines how data will be sent
+                            headers: {'Content-Type': 'application/json'}, 
+                            //passes information into the body of the request that will be used to update data
+                            body: JSON.stringify({routines:routines}), 
                         })
                     </code>
                 </pre>
@@ -344,8 +354,10 @@
                     <code class="sectionContent codeSection language-js">
                         // passes a parameter in the URL that will be used to identify which user is being searched for
                         await fetch(`/people/${currentUser.userID}`, {
-                            method: "DELETE", // determines the type of method that will be used
-                            headers: {'Content-Type': 'application/json'}, // determines how data will be sent
+                            // determines the type of method that will be used
+                            method: "DELETE",
+                            // determines how data will be sent
+                            headers: {'Content-Type': 'application/json'}, 
                         })
                     </code>
                 </pre>
